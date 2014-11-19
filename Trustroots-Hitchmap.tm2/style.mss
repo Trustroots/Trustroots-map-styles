@@ -8,7 +8,7 @@
 // also in the #water_label and #waterway_label layers inside a color
 // manipulation function to get a darker shade of the same hue.
 @land: #f4efeb;
-@water: #76a3d0;
+@water: #89c0bc;
 
 Map {
   background-color:@land;
