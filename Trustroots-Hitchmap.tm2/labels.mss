@@ -232,8 +232,9 @@
 
 // ---------------------------------------------------------------------
 // Gas stations
+@fuel-color: #d07200;
 
-#poi_label[zoom<=18][zoom>=2][type="Fuel"] {
+#poi_label[zoom<=17][zoom>=2][type="Fuel"] {
   // Separate icon and label attachments are created to ensure that
   // all icon placement happens first, then labels are placed only
   // if there is still room.
@@ -242,20 +243,20 @@
     // can use that in our url expression.
     // Not all POIs have a Maki icon assigned, so we limit this section
     // to those that do. See also <https://www.mapbox.com/maki/>
-    marker-fill:#d07200;
+    marker-fill: @fuel-color;
     marker-width: 25;
     marker-file:url('icon/[maki]-12.svg');
     
-      
-  }
-  ::shield[maki!=null] {
-    shield-name: [maki];
-    shield-face-name: @sans_bd;
-    shield-fill: #765;
-    shield-min-distance: 0;
-    shield-min-padding: 8;  // prevents clipped shields at tile edges
-    shield-size: 9;
-    shield-file: url('shield/motorway_lg_[reflen].png');
+    // Default Value: false (Do not allow makers to overlap with each other - overlapping markers will not be shown.)
+    // Control whether overlapping markers are shown or hidden.
+    marker-allow-overlap: false;
+    
+    // Default Value: false (do not store the bbox of this geometry in the collision detector cache) 
+    // value to control whether the placement of the feature will prevent the placement of other features
+    marker-ignore-placement: false;
+    
+    // The maximum difference between actual marker placement and the marker-spacing parameter. Setting a high value can allow the renderer to try to resolve placement conflicts with other symbolizers.
+    marker-max-error: 0.2;
   }
   ::label {
     text-name: @name;
@@ -265,7 +266,7 @@
     text-halo-rasterizer: fast;
     text-wrap-width: 70;
     text-size: 15;
-    text-fill: #d07200;
+    text-fill: @fuel-color;
     
     text-min-distance: 0;
     text-min-padding: 0;
