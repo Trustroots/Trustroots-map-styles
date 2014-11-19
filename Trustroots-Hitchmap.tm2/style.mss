@@ -7,7 +7,7 @@
 // Eg. @water is used in the #water and #waterway layers directly, but
 // also in the #water_label and #waterway_label layers inside a color
 // manipulation function to get a darker shade of the same hue.
-@land: #e6e6e6;
+@land: #f4efeb;
 @water: #76a3d0;
 
 Map {
